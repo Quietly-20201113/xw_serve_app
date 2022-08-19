@@ -4,7 +4,7 @@ const configs = {
       port: '3306',
       user: 'root',
       password: '123123',  // 自己设置的密码
-      database: 'myDockerMysql' // 数据库的名字
+      database: 'xw_mysql' // 数据库的名字
     },
     // 打印错误
     log: {
