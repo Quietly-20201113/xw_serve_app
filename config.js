@@ -1,9 +1,9 @@
 const configs = {
     mysql: {
-      host: '127.0.0.1',
+      host: '106.54.173.217',
       port: '3306',
       user: 'root',
-      password: '123123',  // 自己设置的密码
+      password: '123456',  // 自己设置的密码
       database: 'xw_mysql' // 数据库的名字
     },
     // 打印错误

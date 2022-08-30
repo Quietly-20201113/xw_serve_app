@@ -8,7 +8,12 @@ module.exports = require('knex')({
     port: configs.mysql.port,
     user: configs.mysql.user,
     password: configs.mysql.password,
-    database: configs.mysql.database
+    database: configs.mysql.database,
+    pool: {
+      min: 2,
+      max: 25,
+      idleTimeoutMillis: 10000
+  }
   },
   // 打印错误
   log: {
