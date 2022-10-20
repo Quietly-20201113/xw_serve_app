@@ -1,6 +1,7 @@
 // 引用用户模版数据
 const User = require('../models/entity/user.js');
 
+
 const userController = {
   // showUser 获取用户数据并返回到页面
   showUser: async function(req,res,next){

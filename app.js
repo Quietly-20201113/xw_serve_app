@@ -6,6 +6,7 @@ const morgan  = require('morgan');
 const logger = require('./logger')
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const windyRouter = require('./routes/windy');
 
 const app = express();
 
@@ -21,11 +22,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/windy', windyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+//设置跨域请求
+app.all('*', function (req, res, next) {
+  //设置请求头
+  //允许所有来源访问
+  res.header('Access-Control-Allow-Origin', '*')
+  //用于判断request来自ajax还是传统请求
+  res.header("Access-Control-Allow-Headers", " Origin, X-Requested-With, Content-Type, Accept");
+  //允许访问的方式
+  res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
+  //修改程序信息与版本
+  res.header('X-Powered-By', ' 3.2.1')
+  //内容类型：如果是post请求必须指定这个属性
+  res.header('Content-Type', 'application/json;charset=utf-8')
+  next()
+})
+
 
 // error handler
 // app.use(function(err, req, res, next) {
