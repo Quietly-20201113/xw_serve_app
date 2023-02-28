@@ -1,0 +1,80 @@
+<view style="width:100%; background: none;">
+<view wx:if="{{isAvailable}}">
+    <van-toast id="van-toast" />
+  <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000"
+    style="background: white; height: 250px; width: 100%;">
+    <swiper-item wx:for="{{SwiperList}}" wx:key="_id">
+      <image src="{{item.url}}" mode='scaleToFill' class="swiper-image" />
+    </swiper-item>
+  </swiper>
+  <!-- <Swiper swiperList='{{SwiperList}}' /> -->
+
+  <!-- 各种纪念日 -->
+  <view class="form-group_label">🐻 晚上好呀，{{nowUser.nickname}}~</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">{{userA}}的积分：{{creditA}}</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">{{userB}}的积分：{{creditB}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 积分榜 -->
+  <view class="form-group_label">💰 积分榜</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">{{userA}}的积分：{{creditA}}</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">{{userB}}的积分：{{creditB}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 欢迎回来 -->
+  <view class="form-group_label">🐻 欢迎回来</view>
+  <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">欢迎！小王同学和哥哥！</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">今天想做什么呢？</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="sign">
+    <van-button color="pink" round size="small" bindtap="dailySign" wx:if="{{!isSign}}">签到</van-button>
+</view>
+</view>
+<view wx:else>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">此程序只对小王同学与他的哥哥开放</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">如果也需要此程序请联系管理员!</view>
+      </view>
+    </view>
+    <view class="form-cell">
+      <view class="slide">
+        <view class="title">QQ: 1572804782</view>
+      </view>
+    </view>
+</view>
+</view>
+
