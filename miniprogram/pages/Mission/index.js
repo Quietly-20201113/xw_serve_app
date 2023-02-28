@@ -22,14 +22,15 @@ Page({
   },
 
   async onLoad() {
+    const that = this;
      wx.cloud.callFunction({ name: 'getOpenId' }).then(async resOpenId => {
-        if(!(resOpenId.result ==  _openidA || resOpenId.result == _openidB)){
+        if(!(resOpenId.result ==  that.data._openidA || resOpenId.result == that.data._openidB)){
             that.setData({
                 isAvailable: false
             })
             return;
         }
-           this.getSwiperList(); // 初始化首页轮播图数据
+        that.getSwiperList(); // 初始化首页轮播图数据
     })
   },
 
@@ -113,10 +114,11 @@ Page({
     } else {
       missionList = this.data.allMissions
     }
-
+    console.log(missionList);
     this.setData({
       unfinishedMissions: missionList.filter(item => item.available === true),
       finishedMissions: missionList.filter(item => item.available === false),
+      
     })
   },
 
@@ -137,16 +139,14 @@ Page({
     // 是未完成还是已完成
     const isUpper = Boolean(element.currentTarget.dataset.isupper);
     //根据序号获得任务
-    const missionIndex = element.currentTarget.dataset.index * 1;
-    const mission = isUpper ? this.data.unfinishedMissions[missionIndex] : this.data.finishedMissions[missionIndex];
-    console.log(index, isUpper, missionIndex, mission);
-
+    const mission = this.data.allMissions.find((item) => item._id == element.currentTarget.dataset.id);
+    console.log(mission, this.data.allMissions,element.currentTarget.dataset);
     await wx.cloud.callFunction({ name: 'getOpenId' }).then(async openid => {
 
       //处理完成点击事件
       if (index === 0) {
-        if (isUpper) {
-          this.finishMission(element)
+        if (mission.available) {
+          this.finishMission(mission)
         } else {
           wx.showToast({
             title: '任务已经完成',
@@ -155,7 +155,7 @@ Page({
           })
         }
 
-      } else if (mission._openid === openid.result) {
+      } else if (mission?._openid === openid.result) {
         //处理星标按钮点击事件
         if (index === 1) {
           wx.cloud.callFunction({ name: 'editStar', data: { _id: mission._id, list: getApp().globalData.collectionMissionList, value: !mission.star } })
@@ -167,6 +167,7 @@ Page({
         else if (index === 2) {
           wx.cloud.callFunction({ name: 'deleteElement', data: { _id: mission._id, list: getApp().globalData.collectionMissionList } })
           //更新本地数据
+          const missionIndex = element.currentTarget.dataset.index
           if (isUpper) this.data.unfinishedMissions.splice(missionIndex, 1)
           else this.data.finishedMissions.splice(missionIndex, 1)
           //如果删除完所有事项，刷新数据，让页面显示无事项图片
@@ -194,15 +195,12 @@ Page({
   },
 
   //完成任务
-  async finishMission(element) {
-    //根据序号获得触发切换事件的待办
-    const missionIndex = element.currentTarget.dataset.index
-    const mission = this.data.unfinishedMissions[missionIndex]
+  async finishMission(mission) {
     await wx.cloud.callFunction({ name: 'getOpenId' }).then(async openid => {
-      if (mission._openid != openid.result) {
+      if (mission?._openid != openid.result) {
         //完成对方任务，奖金打入对方账号
         wx.cloud.callFunction({ name: 'editAvailable', data: { _id: mission._id, value: false, list: getApp().globalData.collectionMissionList } })
-        wx.cloud.callFunction({ name: 'editCredit', data: { _openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList } })
+        wx.cloud.callFunction({ name: 'editCredit', data: { _openid: openid.result, value: mission.credit, list: getApp().globalData.collectionUserList } })
 
         //触发显示更新
         mission.available = false

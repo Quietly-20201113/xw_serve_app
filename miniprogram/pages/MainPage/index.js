@@ -16,7 +16,7 @@ Page({
         SwiperList: [],
         nowUser: '',
         isSign: false,
-
+        swiperHeight: '',
         isAvailable: true
     },
 
@@ -34,7 +34,16 @@ Page({
             userB: getApp().globalData.userB,
         })
     },
-
+    computeImgHeight(e){
+        const winWid = wx.getSystemInfoSync().windowWidth;      //获取当前屏幕的宽度
+        const imgh=e.detail.height;　　　　　　　　　　　　　　　 //图片高度
+        const imgw=e.detail.width;
+        const swiperH = winWid * imgh / imgw + "px"　           //等比设置swiper的高度。  
+        //即 屏幕宽度 / swiper高度 = 图片宽度 / 图片高度  -->  swiper高度 = 屏幕宽度 * 图片高度 / 图片宽度
+        this.setData({
+          swiperHeight: swiperH		//设置swiper高度
+        })
+    },
     async initUser() {
         const that = this;
         await wx.cloud.callFunction({ name: 'getOpenId' }).then(async resOpenId => {

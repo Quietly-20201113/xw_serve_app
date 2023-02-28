@@ -14,9 +14,9 @@
 </view>
 
 <swiper wx:if="{{allItems.length > 0}}" indicator-dots="true" autoplay="true" interval="2000" duration="500"
-  style="background: white; height: 250px; width: 100%;">
+  style="background: white; height: 300px; width: 100%;">
   <swiper-item wx:for="{{SwiperList}}" wx:key="_id">
-    <image src="{{item.url}}" mode='scaleToFill' class="swiper-image" />
+    <image src="{{item.url}}" mode='aspectFill' class="swiper-image" />
   </swiper-item>
 </swiper>
 

@@ -16,11 +16,12 @@
   .swiper-image{
     display: block;
     height: 100%; 
+    object-fit: cover;
     width: 100%;
     background-color: darkgray;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
   }
   
   .form-cell {padding: 0;}
