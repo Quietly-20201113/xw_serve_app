@@ -3,54 +3,53 @@ Page({
   data: {
     title: '',
     desc: '',
-    
-    credit: 0,
+    rangeArray: [0,10,20,30,40,50,60,70,80,90,100,200,300,400], // 积分数值
+    credit: 0,        // 积分
+    chapterNum: 0,    // 集数/章节 这里不使用
+    maxChapterNum: 0, // 这里不使用
+    missionPattern: 0, // 任务模式 这里不使用
     maxCredit: getApp().globalData.maxCredit,
     presetIndex: 0,
     presets: [{
-        name:"无预设",
+        name:"暂无预设",
         title:"",
         desc:"",
     },{
-        name:"薯片",
-        title:"美味薯片",
-        desc:"诱人的零食，夜宵绝佳伴侣，咔嘣脆！凭此商品可以向对方索要薯片。",
+        name:"零食券",
+        title:"零食券",
+        desc:"诱人的零食，看剧绝佳伴侣！凭此商品可以向对方索要零食。",
     },{
         name:"奶茶券",
-        title:"奶茶权限",
+        title:"奶茶券",
         desc:"凭此券可以向对方索要一杯奶茶。",
     },{
         name:"夜宵券",
-        title:"夜宵放开闸",
+        title:"夜宵券",
         desc:"凭此券可以让自己在夜里狂野干饭。",
+    },{
+        name:"外卖券",
+        title:"外卖券",
+        desc:"凭此券可以让对方为心爱的人点一次外卖！",
     },{
         name:"洗碗券",
         title:"洗碗券",
         desc:"凭此券可以让对方洗碗一次！若都有洗碗券则互相抵消。",
     },{
-        name:"做家务",
+        name:"家务券",
         title:"家务券",
         desc:"凭此券可以让对方做一次轻型家务，比如扔垃圾，打扫一个的房间，领一天外卖什么的。",
     },{
-        name:"不赖床",
+        name:"早起券",
         title:"早起券",
         desc:"凭此券可以让对方早起床一次。熬夜对身体很不好，还是要早点睡觉第二天才能有精神！",
     },{
-        name:"做运动",
+        name:"减肥券",
         title:"减肥券",
         desc:"凭此券可以逼迫对方做一次运动，以此来达到减肥维持健康的目的。",
     },{
-        name:"给饭吃",
-        title:"饭票",
-        desc:"凭此券可以让对方做一次或请一次饭，具体视情况而定。",
-    },{
-        name:"买小礼物",
-        title:"小礼物盒",
+        name:"礼物券",
+        title:"礼物券",
         desc:"凭此券可以让对方买点小礼物，像泡泡马特什么的。",
-    },{
-        name:"跑腿",
-        title:"跑腿召唤",
-        desc:"凭此券可以让对方跑腿一天，拿外卖，拿零食，开空调，开电视，在所不辞。",
     }],
     list: getApp().globalData.collectionMarketList,
   },
@@ -67,9 +66,10 @@ Page({
     })
   },
   onCreditInput(e) {
+    const val = e.detail.value;
     this.setData({
-      credit: e.detail.value
-    })
+      credit: this.data.rangeArray[val[0]]
+    });
   },
   onPresetChange(e){
     this.setData({
@@ -114,18 +114,24 @@ Page({
       })
       return
     }else{
+        wx.showToast({
+          title: '正在保存..',
+          icon: 'loading',
+          mask: true,
+          duration: 1000
+        });
         await wx.cloud.callFunction({name: 'addElement', data: this.data}).then(
             () => {
                 wx.showToast({
                     title: '添加成功',
                     icon: 'success',
-                    duration: 1000
+                    duration: 500
                 })
             }
         )
         setTimeout(function () {
             wx.navigateBack()
-        }, 1000)
+        }, 500)
     }
   },
 
@@ -138,5 +144,5 @@ Page({
       presetIndex: 0,
       list: getApp().globalData.collectionMarketList,
     })
-  }
+  },
 })

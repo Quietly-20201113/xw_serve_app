@@ -15,6 +15,9 @@ exports.main = async (context) => {
 
       date: db_date,
       credit: Number(context.credit),
+      chapterNum: Number(context.chapterNum),
+      maxChapterNum: Number(context.maxChapterNum),
+      missionPattern: Number(context.missionPattern), // 任务模式
       
       title: context.title,
       desc: context.desc,

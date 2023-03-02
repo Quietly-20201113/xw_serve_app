@@ -10,10 +10,10 @@ const db = cloud.database()
 exports.main = async (context) => {
   //更改积分数量，减少可用负数
   return await db.collection(context.list).where({
-    _openid: context._openid
+    _openid: context._openid  // 根据openid修改积分
   }).update({
     data: {
-      credit: db.command.inc(context.value)
+      credit: db.command.inc(context.value) // 自增 value 这样的值
     }
   })
 }

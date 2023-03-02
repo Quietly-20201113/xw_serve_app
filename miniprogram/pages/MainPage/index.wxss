@@ -1,35 +1,80 @@
-.outside-title {
-  font-weight: 600;
-}
-
 .form-cell {
   padding: 0;
 }
 
 .slide {
-  display: flex;
+  display: flex; 
   align-items: center;
   padding: 10px;
   position: relative;
 }
 
-.title {
-  font-size: 12px;
+.info {
+  width: auto;
+  display: flex;
+  flex-direction: column
 }
 
+.title {
+  font-size: 14px;
+  font-family: SimSun;
+}
+.title_in {
+  font-size: 14px;
+  font-family: SimSun;
+  color: #8D8D8D;
+}
+.nums {
+  font-size: 17px;
+  font-family: Arial;
+  font-weight: 500;
+  color: rgb(221, 111, 20);
+}
+.nums_in {
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: 500;
+  color: rgb(221, 111, 20);
+}
+/* 右侧显示 */
+.font_right {
+  font-size: 16px;
+  font-family: SimSun;
+  color: #8D8D8D;
+  position: absolute;
+  right: 36px;
+}
+.nums_right_in {
+  font-size: 18px;
+  font-family: Arial;
+  font-weight: 500;
+  color: rgb(221, 111, 20);
+}
 .swiper-image{
   display: block;
   height: 100%; 
   width: 100%;
-  object-fit: cover;
   position: relative;
   background-color: darkgray;
-  /* background-repeat: no-repeat;
-  background-size: contain; */
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.sign {
-    position: fixed;
-    bottom: 30px;
-    right: 20px;
+.btn-normal{
+  margin: 2%;
+  color: #3d3d3d;
+  background-color: white;
+}
+.btn-hover{
+  color: black;
+  background-color: gray;
+}
+ 
+.navigate_next {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0px;
+  
+  /* top: 0; */
 }

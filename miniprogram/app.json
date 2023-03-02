@@ -1,9 +1,13 @@
 {
   "pages": [
     "pages/MainPage/index",
+    "pages/MainPageDetail/index",
     "pages/Mission/index",
     "pages/MissionAdd/index",
     "pages/MissionDetail/index",
+    "pages/Note/index",
+    "pages/NoteAdd/index",
+    "pages/NoteDetail/index",
     "pages/Market/index",
     "pages/MarketAdd/index",
     "pages/MarketDetail/index",
@@ -11,45 +15,44 @@
     "pages/ItemDetail/index"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "小王同学与哥哥",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "哥哥和小王同学",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#1a1a1a",
-    "selectedColor": "#ff99aa",
+    "selectedColor": "#85b2c8",
     "list": [{
       "pagePath": "pages/MainPage/index",
-      "selectedIconPath": "images/TabBar/HomeIconColor.jpg",
-      "iconPath": "images/TabBar/HomeIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/home_selected.png",
+      "iconPath": "images/TabBar/home.png",
       "text": "首页"
     }, {
       "pagePath": "pages/Mission/index",
-      "selectedIconPath": "images/TabBar/MissionIconColor.jpg",
-      "iconPath": "images/TabBar/MissionIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/job_selected.png",
+      "iconPath": "images/TabBar/job.png",
       "text": "任务"
     },{
+      "pagePath": "pages/Note/index",
+      "selectedIconPath": "images/TabBar/Note_selected.png",
+      "iconPath": "images/TabBar/Note.png",
+      "text": "笔记"
+    }, {
       "pagePath": "pages/Market/index",
-      "selectedIconPath": "images/TabBar/MarketIconColor.jpg",
-      "iconPath": "images/TabBar/MarketIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/mall_selected.png",
+      "iconPath": "images/TabBar/mall.png",
       "text": "商城"
     },{
       "pagePath": "pages/Account/index",
-      "selectedIconPath": "images/TabBar/AccountIconColor.jpg",
-      "iconPath": "images/TabBar/AccountIconGrey.jpg",
+      "selectedIconPath": "images/TabBar/store_selected.png",
+      "iconPath": "images/TabBar/store.png",
       "text": "仓库"
     }]
   },
+  "lazyCodeLoading": "requiredComponents",
   "cloud": true,
   "sitemapLocation": "sitemap.json",
-  "usingComponents": {
-    "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-icon": "@vant/weapp/icon/index",
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-nav-bar": "@vant/weapp/nav-bar/index"
-  }
+  "style": "v2"
 }

@@ -8,27 +8,24 @@
   font-size: 17px;
   font-weight: bold;
 }
-
 .subtitle {
   margin-top: 9px;
   font-size: 12px;
 }
 
-.swiper-image {
+.swiper-image{
   display: block;
-  height: 100%;
+  height: 100%; 
   width: 100%;
   background-color: darkgray;
   background-position: center;
-  /* background-repeat: no-repeat;
-  background-size: cover; */
-  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .form-cell {
-  padding: 0;
+    padding: 0;
 }
-
 .slide {
   display: flex;
   align-items: center;
@@ -42,47 +39,26 @@
   display: flex;
   flex-direction: column
 }
-
 .mission-info_title {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
 }
-
 .mission-info_desc {
-  font-size: 10px;
+  font-size: 12px;
   color: #BDBDBD;
 }
-
-.mission-info_award {
-  font-size: 10px;
-  height: 17px;
-  line-height: 17px;
-}
-
 .mission-info_date {
-  display: flex;
-  justify-self: start;
-  height: 15px;
-  line-height: 15px;
-  font-size: 10px;
+  font-size: 12px;
   color: #BDBDBD;
 }
-
 .mission-info_author {
-  width: 50px;
+  width: 70px;
   height: 100%;
   position: absolute;
-  right: 7%;
-  bottom: 10px;
+  right: 10%;
+  bottom: 0;
 }
-
-.date_children {
-  margin-left: 10px;
-}
-
-.color_purple {
-  color: purple;
-  font-weight: 600;
+.mission-info_award {
+  font-size: 10px;
 }
 
 .star {
@@ -93,25 +69,17 @@
   top: 0;
 }
 
-.markBtn {
-  background-color: greenyellow;
-}
+.markBtn .weui-slideview__btn {background-color: greenyellow;}
+.starBtn .weui-slideview__btn {background-color: gold;}
+.removeBtn .weui-slideview__btn {background-color: lightsalmon;}
 
-.starBtn {
-  background-color: gold;
-}
-
-.removeBtn {
-  background-color: lightsalmon;
-}
-
-.btn-normal {
+.btn-normal{
   margin: 2%;
-  color: white;
-  background-color: #3d3d3d;
+  color: #3d3d3d;
+  background-color: white;
+  font-size: 14pt;
 }
-
-.btn-hover {
+.btn-hover{
   color: black;
   background-color: gray;
 }
@@ -125,7 +93,6 @@
   border: 1rpx solid #E6E6EA;
   border-radius: 5px;
 }
-
 .search-input {
   position: relative;
   left: 28px;
@@ -134,35 +101,7 @@
   line-height: 28px;
   font-size: 14px;
 }
-
 .search-icon {
   position: absolute;
   margin: 2px;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.selectIcon {
-  flex: 1;
-  width: 45px;
-  height: 45px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 50%;
-  margin: 15px 6px 0 0;
-}
-
-.badge {
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  border-radius: 50%;
-  background-color: red;
-  color: white;
-  text-align: center;
-  margin-left: 5px;
 }

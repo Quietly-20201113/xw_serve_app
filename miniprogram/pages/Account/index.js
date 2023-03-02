@@ -15,7 +15,13 @@ Page({
             {extClass: 'removeBtn', text: '删除', src: 'Images/icon_del.svg'}
         ],
     },
-    
+    // 校准时间
+    getDate(dateStr){
+      const milliseconds = Date.parse(dateStr)
+      const date = new Date()
+      date.setTime(milliseconds)
+      return date
+    },
     //页面加载时运行
     async onShow(){
         await wx.cloud.callFunction({name: 'getOpenId'}).then(async res => {
@@ -23,7 +29,12 @@ Page({
                 list: getApp().globalData.collectionStorageList,
                 _openid: res.result
             }}).then(async data => {
-                this.setData({allItems: data.result.data})
+                for(let i in data.result.data){
+                  data.result.data[i].date = this.getDate(data.result.data[i].date).toDateString();
+                }
+                this.setData({
+                  allItems: data.result.data
+                })
                 this.filterItem()
             })
         })
@@ -49,7 +60,6 @@ Page({
       this.setData({
         search: element.detail.value
       })
-  
       this.filterItem()
     },
   
@@ -98,8 +108,8 @@ Page({
                   this.useItem(element)
               }else{
                   wx.showToast({
-                      title: '物品已被使用',
-                      icon: 'error',
+                    title: '物品已使用',
+                    icon: 'error',
                       duration: 2000
                   })
               }
@@ -134,8 +144,8 @@ Page({
           //如果编辑的不是自己的物品，显示提醒
           }else{
               wx.showToast({
-              title: '只能编辑自己的物品',
-              icon: 'error',
+              title: '我们只能编辑自己的物品噢~',
+              icon: 'none',
               duration: 2000
               })
           }
@@ -144,6 +154,12 @@ Page({
   
     //购买物品
     async useItem(element) {
+        wx.showToast({
+          title: '正在加载..',
+          icon: 'loading',
+          mask: true,
+          duration: 2000
+        }); 
         //根据序号获得物品
         const itemIndex = element.currentTarget.dataset.index
         const item = this.data.unusedItems[itemIndex]
@@ -152,11 +168,10 @@ Page({
         wx.cloud.callFunction({name: 'editAvailable', data: {_id: item._id, value: false, list: getApp().globalData.collectionStorageList}}).then(()=>{
             //显示提示
             wx.showToast({
-                title: '已使用',
+                title: '成功使用',
                 icon: 'success',
                 duration: 2000
             })
-  
             //触发显示更新
             item.available = false
             this.filterItem()

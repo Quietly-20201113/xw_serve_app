@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "Swiper": "/components/Swiper/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "mp-badge": "../../miniprogram_npm/weui-miniprogram/badge/badge",
+    "mp-slideview": "../../miniprogram_npm/weui-miniprogram/slideview/slideview"
   }
 }

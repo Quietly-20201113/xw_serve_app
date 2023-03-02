@@ -1,7 +1,7 @@
 <wxs module="util" src="../util.wxs" />
 
 <view class="container white" style="animation-name: animation-blur; animation-duration: 0.8s;">
-  <!-- <image src="cloud://zjc-with-lqy-8gfsmqx87cf10cfb.7a6a-zjc-with-lqy-8gfsmqx87cf10cfb-1308569496/gif/Mission.gif" mode='widthFix' /> -->
+  <image src="../../images/Mission.gif" mode='widthFix' />
   <view class="form-group" 
   style="z-index: 0; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05); ">
     <view class="form-cell">
@@ -10,7 +10,8 @@
     </view>
     <view class="form-cell">
       <view class="mission-info_title">💡 执行计划</view>
-      <view class="mission-info_desc">此任务由{{from}}申请执行，由{{to}}监督确认。</view>
+      <view class="mission-info_desc" wx:if="{{missionPattern == 1}}">此任务是{{from}}申请，由{{from}}执行，需{{to}}监督确认。</view>
+      <view class="mission-info_desc" wx:if="{{missionPattern == 2}}">此任务是{{from}}申请，由{{to}}执行，需{{from}}监督确认。</view>
     </view>
     <view class="form-cell">
       <view class="mission-info_title">💰 奖励力度：{{mission.credit}} 积分</view>

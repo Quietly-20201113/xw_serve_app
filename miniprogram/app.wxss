@@ -1,5 +1,5 @@
 /* 引入 weui 组件 */
-/* @import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss'; */
+@import './miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';
 
 page {
   --footer-height: 10vh;
@@ -13,12 +13,6 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
-
-.selectIcon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
 }
 
 .container.white{
@@ -49,20 +43,17 @@ button::after {
 
 .form-group {
   width: calc(100% - 40px);
-  margin: 10px 20px;
+  margin: 30px 20px;
   border-radius: 10px;
   background: white;
 }
 
 .form-group_label {
   align-self: flex-start;
-
-  display: flex;
-  align-items: center;
   margin-top: 20px;
   margin-left: 20px;
   color: #8D8D8D;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 .form-group_label:not(:first-child) {
@@ -81,10 +72,6 @@ button::after {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-
-.van-swipe-cell {
-  border-radius: 20px;
 }
 
 @keyframes animation-blur {
