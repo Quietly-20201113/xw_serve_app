@@ -25,7 +25,7 @@
               <view wx:if="{{item._openid === _openidA && item.missionPattern == 2}}"> 👦🏻 发布的{{util.filterStr(item.title, 10)}}(🔑女友限定)</view>
               <view wx:if="{{item._openid === _openidB && item.missionPattern == 2}}"> 👧🏻 发布的{{util.filterStr(item.title, 10)}}(🔒男友限定)</view>
             </view>
-            <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
+            <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分 <view>{{item.title}}</view></view>
             <view class="mission-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
           </view>
           <view class="mission-info_author">
@@ -51,7 +51,7 @@
               <view wx:if="{{item._openid === _openidA && item.missionPattern == 2}}"> 👦🏻 发布的{{util.filterStr(item.title, 10)}}(🔑女友限定)</view>
               <view wx:if="{{item._openid === _openidB && item.missionPattern == 2}}"> 👧🏻 发布的{{util.filterStr(item.title, 10)}}(🔒男友限定)</view>
             </view>
-            <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分</view>
+            <view class="mission-info_award">💰 {{util.filterStr(item.credit, 10)}} 积分<view>{{item.title}}</view></view>
             <view class="mission-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 创建</view>
           </view>
           <view class="mission-info_author">
