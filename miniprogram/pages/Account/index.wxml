@@ -20,8 +20,8 @@
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageUpper">
           <view class="item-info">
             <view class="item-info_title">
-              <view wx:if="{{item._openid === _openidA}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
-              <view wx:if="{{item._openid === _openidB}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidA}}"> 小王同学发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 哥哥发布的{{util.filterStr(item.title, 10)}}</view>
             </view>
             <view class="item-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 购买</view>
           </view>
@@ -39,8 +39,8 @@
         <view class="slide" data-index="{{index}}" bindtap="toDetailPageLower">
           <view class="item-info">
             <view class="item-info_title">
-              <view wx:if="{{item._openid === _openidA}}"> 女朋友发布的{{util.filterStr(item.title, 10)}}</view>
-              <view wx:if="{{item._openid === _openidB}}"> 男朋友发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidA}}"> 小王同学发布的{{util.filterStr(item.title, 10)}}</view>
+              <view wx:if="{{item._openid === _openidB}}"> 哥哥发布的{{util.filterStr(item.title, 10)}}</view>
             </view>
             <view class="item-info_date">📅 {{util.sliceStr(item.date, 4, 15)}} 购买</view>
           </view>

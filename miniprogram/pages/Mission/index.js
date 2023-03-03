@@ -179,7 +179,7 @@ Page({
       await wx.cloud.callFunction({name: 'getMissionPattern', data: {_id: mission._id, list: getApp().globalData.collectionMissionList}}).then(async data => {  
         // 如果任务是 对方创建的 且 模式是 “给自己的任务”
         if(mission._openid != openid.result && data.result.data[0].missionPattern == 1){ 
-          // eg:女朋友发布任务mission._openid，男朋友openid.result确认女朋友完成了任务，积分加到女朋友账号mission._openid
+          // eg:小王同学发布任务mission._openid，哥哥openid.result确认小王同学完成了任务，积分加到小王同学账号mission._openid
           wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
           wx.cloud.callFunction({name: 'editCredit', data: {_openid: mission._openid, value: mission.credit, list: getApp().globalData.collectionUserList}})
 
@@ -197,12 +197,12 @@ Page({
         }
         // 如果任务是 自己创建的 且 模式是 “给对方的任务”
         else if(mission._openid == openid.result && data.result.data[0].missionPattern == 2){
-          // eg:女朋友发布任务mission._openid，女朋友openid.result确认男朋友完成了任务，积分加到男朋友账号
+          // eg:小王同学发布任务mission._openid，小王同学openid.result确认哥哥完成了任务，积分加到哥哥账号
           wx.cloud.callFunction({name: 'editAvailable', data: {_id: mission._id, value: false, list: getApp().globalData.collectionMissionList}})
-            if (openid.result == this.data._openidB) {  // 打开页面的是女生，则加到男朋友账号
+            if (openid.result == this.data._openidB) {  // 打开页面的是女生，则加到哥哥账号
               wx.cloud.callFunction({name: 'editCredit', data: {_openid: this.data._openidA, value: mission.credit, list: getApp().globalData.collectionUserList}})
             }
-            else if (openid.result == this.data._openidA) { // 打开页面的是男生，则加到女朋友账号
+            else if (openid.result == this.data._openidA) { // 打开页面的是男生，则加到小王同学账号
               wx.cloud.callFunction({name: 'editCredit', data: {_openid: this.data._openidB, value: mission.credit, list: getApp().globalData.collectionUserList}})
             }
             else {

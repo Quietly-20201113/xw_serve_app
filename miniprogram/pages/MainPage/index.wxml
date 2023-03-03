@@ -32,12 +32,12 @@
     <view class="form-group" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);">
     <view class="form-cell">
         <view class="slide">
-        <view class="title">💝 宝贝呀，{{userB}}已经想你<text class="nums">   {{missYouB}}   </text>天啦！</view>
+        <view class="title">💝 哥哥呀，{{userB}}已经想你<text class="nums">   {{missYouB}}   </text>天啦！</view>
         </view>
     </view>
     <view class="form-cell">
         <view class="slide">
-        <view class="title">💖 乖乖呀，{{userA}}已经想你<text class="nums">   {{missYouA}}   </text>天啦！</view>
+        <view class="title">💖 小王同学呀，{{userA}}已经想你<text class="nums">   {{missYouA}}   </text>天啦！</view>
         </view>
     </view>
 </view>

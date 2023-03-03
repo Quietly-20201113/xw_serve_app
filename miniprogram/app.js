@@ -15,7 +15,7 @@ App({
       birthdayA: '1995/11/13',
       birthdayB: '1998/11/14',       // 新历出生
       birthdayA_next: `${new Date().getFullYear()}/11/13 00:00:00` ,
-      birthdayB_next: `${new Date().getFullYear()}2023/11/14 00:00:00`,  // 每年生日
+      birthdayB_next: `${new Date().getFullYear()}/11/14 00:00:00`,  // 每年生日
 
       //用于存储待办记录的集合名称
       collectionMissionList: 'MissionList',
